@@ -4,9 +4,110 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vocabulary"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        mc:Ignorable="d" Height="500" Width="600" Icon="Resources/icon.ico" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" FontFamily="Segoe Script" FontSize="16">
+    <Window.Effect>
+        <BlurEffect x:Name="BlrEffect" Radius="0" RenderingBias="Quality"/>
+    </Window.Effect>
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/background.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,0,0">
+        <Viewbox Margin="0" Stretch="Fill">
+            <StackPanel Height="469" Width="592" Opacity="0">
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="Opacity">
+                                <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+                <Button x:Name="btnVocabulary" FontSize="14" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Словари" Padding="0" OpacityMask="{x:Null}" Margin="150,100,150,5" Height="43" Focusable="False">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/button.png"/>
+                    </Button.Background>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation 
+    									To="25,125,25,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                    <ThicknessAnimation 
+    									To="150,100,150,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="btnTraining" Content="Обучение" FontSize="14" BorderBrush="{x:Null}" Foreground="White" Margin="150,5" Height="43" Padding="0" Focusable="False">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/button.png"/>
+                    </Button.Background>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation 
+    									To="25,30,25,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                    <ThicknessAnimation 
+    									To="150,5,150,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="btnShop" Content="Магазин" FontSize="14" BorderBrush="{x:Null}" Foreground="White" OpacityMask="{x:Null}" Margin="150,5" Height="43" Padding="0" Focusable="False">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/button.png"/>
+                    </Button.Background>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation 
+    									To="25,30,25,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                    <ThicknessAnimation 
+    									To="150,5,150,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button x:Name="btnStatistic" Content="Статистика" FontSize="14" BorderBrush="{x:Null}" Foreground="White" Margin="150,5" Height="43" Padding="0" Focusable="False">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/button.png"/>
+                    </Button.Background>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation 
+    									To="25,30,25,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                    <ThicknessAnimation 
+    									To="150,5,150,5" 
+    									Duration="0:0:0.5" 
+    									Storyboard.TargetProperty="Margin"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+        </Viewbox>
     </Grid>
 </Window>
