@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace моделирование.Models
 {
-    class Vocabulary
+    public class Vocabulary
     {
         public int VocabularyID { get; set; }
+        [MaxLength(20)]
+        public string Title { get; set; }
         public int CountOfWord { get; set; }
         public int CategoryID { get; set; }
         //[NotMapped]

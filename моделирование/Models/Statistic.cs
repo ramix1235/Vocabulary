@@ -2,7 +2,7 @@
 
 namespace моделирование.Models
 {
-    class Statistic
+    public class Statistic
     {
         public int StatisticID { get; set; }
         //public int ScoreID { get; set; }

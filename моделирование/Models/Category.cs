@@ -2,11 +2,11 @@
 
 namespace моделирование.Models
 {
-    class Category
+    public class Category
     {
         public int CategoryID { get; set; }
-        [MaxLength(150)]
-        public string Description { get; set; }
+        [MaxLength(20)]
+        public string Title { get; set; }
         //[NotMapped]
         //public int Statistics_StatisticID { get; set; }
 

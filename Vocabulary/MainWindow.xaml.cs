@@ -9,9 +9,22 @@ namespace Vocabulary
     /// </summary>
     public partial class MainWindow : Window
     {
+        private VocabulariesWindow vocWin; // окно словаря
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Нажатие кнопки "Словарь"
+        /// </summary>
+        private void btnVocabularies_Click(object sender, RoutedEventArgs e)
+        {
+            vocWin = new VocabulariesWindow();
+            vocWin.Show();
+            vocWin.MainWin = this; // передаем главное окно в окно словаря для возврата к нему при закрытии окна словаря
+            WindowState = WindowState.Minimized; // сворачиваем главное окно
         }
 
         /// <summary>

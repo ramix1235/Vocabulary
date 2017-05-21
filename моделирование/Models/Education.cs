@@ -1,6 +1,6 @@
 ﻿namespace моделирование.Models
 {
-    class Education
+    public class Education
     {
         public int EducationID { get; set; }
         public int CountOfEducation { get; set; }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace моделирование.Models
 {
-    class Product
+    public class Product
     {
         public int ProductID { get; set; }
         [MaxLength(20)]

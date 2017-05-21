@@ -1,6 +1,6 @@
 ﻿namespace моделирование.Models
 {
-    class Limitation
+    public class Limitation
     {
         public int LimitationID { get; set; }
         public int MaxCountOfCategory { get; set; }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vocabulary"
-        mc:Ignorable="d" Height="500" Width="600" Icon="Resources/icon.ico" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" FontFamily="Segoe Script" FontSize="16">
+        mc:Ignorable="d" Height="500" Width="600" Icon="Resources/icon.ico" Foreground="{x:Null}" WindowStartupLocation="CenterScreen" FontFamily="Segoe Script" FontSize="16" Activated="Window_Activated" Deactivated="Window_Deactivated" KeyDown="Window_KeyDown">
     <Window.Effect>
         <BlurEffect x:Name="BlrEffect" Radius="0" RenderingBias="Quality"/>
     </Window.Effect>
@@ -23,7 +23,7 @@
                         </BeginStoryboard>
                     </EventTrigger>
                 </StackPanel.Triggers>
-                <Button x:Name="btnVocabulary" FontSize="14" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Словари" Padding="0" OpacityMask="{x:Null}" Margin="150,100,150,5" Height="43" Focusable="False">
+                <Button x:Name="btnVocabularies" Click="btnVocabularies_Click" FontSize="14" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Словари" Padding="0" OpacityMask="{x:Null}" Margin="150,100,150,5" Height="43" Focusable="False">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/button.png"/>
                     </Button.Background>

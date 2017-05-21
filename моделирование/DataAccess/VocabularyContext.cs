@@ -3,7 +3,7 @@ using моделирование.Models;
 
 namespace моделирование.DataAccess
 {
-    class VocabularyContext : DbContext
+    public class VocabularyContext : DbContext
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Education> Education { get; set; }

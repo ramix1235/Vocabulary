@@ -2,7 +2,7 @@
 
 namespace моделирование.Models
 {
-    class Word
+    public class Word
     {
         public int WordID { get; set; }
         [MaxLength(200)]

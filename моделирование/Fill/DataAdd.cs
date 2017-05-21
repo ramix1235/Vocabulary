@@ -13,15 +13,15 @@ namespace моделирование.Fill
             {
                 new Category
                 {
-                    Description = @"Программирование"
+                    Title = @"Программирование"
                 },
                 new Category
                 {
-                    Description = @"Путешествие"
+                    Title = @"Путешествие"
                 },
                 new Category
                 {
-                    Description = @"Еда"
+                    Title = @"Еда"
                 }
             };
             using (var context = new VocabularyContext())
@@ -137,17 +137,20 @@ namespace моделирование.Fill
             {
                 new Vocabulary
                 {
-                    CountOfWord = 0,
+                    Title = @"Словарь 1",
+                    CountOfWord = 3,
                     CategoryID = 1
                 },
                 new Vocabulary
                 {
-                    CountOfWord = 0,
+                    Title = @"Словарь 2",
+                    CountOfWord = 3,
                     CategoryID = 2
                 },
                 new Vocabulary
                 {
-                    CountOfWord = 0,
+                    Title = @"Словарь 3",
+                    CountOfWord = 3,
                     CategoryID = 3
                 }
             };

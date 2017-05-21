@@ -19,3 +19,5 @@ D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\Vocabulary.exe
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\Vocabulary.pdb
 d:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\App.baml
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabulariesWindow.g.cs
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabulariesWindow.baml

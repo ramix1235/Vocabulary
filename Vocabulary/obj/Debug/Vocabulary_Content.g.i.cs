@@ -8,19 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/add.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/background5.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/button2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/coin.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/delete.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/delete2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/edit.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/edit2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/exit.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/next.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/no.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/question.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/translation.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/yes.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/backgroundvocabularies.jpg")]
 
 

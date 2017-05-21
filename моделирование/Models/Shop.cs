@@ -2,7 +2,7 @@
 
 namespace моделирование.Models
 {
-    class Shop
+    public class Shop
     {
         public int ShopID { get; set; }
 
