@@ -16,7 +16,7 @@
                 </Button.Background>
             </Button>
         </WrapPanel>
-        <DataGrid x:Name="dataGrid" Margin="10,10,10,50" IsReadOnly="True" BorderBrush="{x:Null}" Foreground="White" AutoGenerateColumns="False" GridLinesVisibility="None" HeadersVisibility="Column" SelectionMode="Single" FontSize="16">
+        <DataGrid x:Name="dataGrid" Margin="10,10,10,50" IsReadOnly="True" BorderBrush="{x:Null}" Foreground="White" AutoGenerateColumns="False" GridLinesVisibility="None" HeadersVisibility="Column" SelectionMode="Single" FontSize="16" MouseDoubleClick="dataGrid_MouseDoubleClick">
             <DataGrid.Background>
                 <ImageBrush/>
             </DataGrid.Background>

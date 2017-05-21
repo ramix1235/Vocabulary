@@ -23,8 +23,8 @@ namespace Vocabulary
         {
             vocWin = new VocabulariesWindow();
             vocWin.Show();
-            vocWin.MainWin = this; // передаем главное окно в окно словаря для возврата к нему при закрытии окна словаря
-            WindowState = WindowState.Minimized; // сворачиваем главное окно
+            vocWin.MainWin = this;
+            WindowState = WindowState.Minimized;
         }
 
         /// <summary>

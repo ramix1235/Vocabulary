@@ -65,6 +65,15 @@
     <Compile Include="VocabulariesWindow.xaml.cs">
       <DependentUpon>VocabulariesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VocabularyWindow.xaml.cs">
+      <DependentUpon>VocabularyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WordAddWindow.xaml.cs">
+      <DependentUpon>WordAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WordEditWindow.xaml.cs">
+      <DependentUpon>WordEditWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +87,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VocabulariesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VocabularyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WordAddWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WordEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

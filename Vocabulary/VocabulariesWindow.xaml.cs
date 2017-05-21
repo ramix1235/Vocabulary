@@ -12,7 +12,8 @@ namespace Vocabulary
     /// </summary>
     public partial class VocabulariesWindow : Window
     {
-        public Window MainWin { get; set; } // окно родитель к которому следует вернутся при закрытии
+        private VocabularyWindow VocWin;
+        public Window MainWin { get; set; }
         VocabularyContext db;
 
         public VocabulariesWindow()
@@ -20,13 +21,7 @@ namespace Vocabulary
             InitializeComponent();
             db = new VocabularyContext();
             db.Vocabularies.Load();
-            var vocabularies = db.Vocabularies;
             dataGrid.ItemsSource = db.Vocabularies.Local.ToList();
-            //foreach (моделирование.Models.Vocabulary vocabulary in vocabularies)
-            //{
-            //dataGrid.Items.Add(new Vocabulary { Title = vocabulary.Title, Category = vocabulary.Category.Title, CountOfWord = vocabulary.CountOfWord });
-            //Title = vocabulary.Title, Category = vocabulary.Category, CountOfWord = vocabulary.CountOfWord;
-            //}
         }
 
         /// <summary>
@@ -35,7 +30,7 @@ namespace Vocabulary
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            MainWin.WindowState = WindowState.Normal; // разворачиваем главное окно
+            MainWin.WindowState = WindowState.Normal;
         }
 
         /// <summary>
@@ -55,6 +50,16 @@ namespace Vocabulary
             {
                 btnCancel_Click(sender, e);
             }
+        }
+
+        /// <summary>
+        /// При двойном нажатии мышки, заходим в выбранный словарь
+        /// </summary>
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGrid.SelectedIndex == -1) return;
+            VocWin = new VocabularyWindow(dataGrid);
+            VocWin.Show();
         }
     }
 }
