@@ -7,4 +7,3 @@ D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\моделирование\bin\Debug\EntityFramework.SqlServer.xml
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\моделирование\obj\Debug\моделирование.exe
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\моделирование\obj\Debug\моделирование.pdb
-D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\моделирование\obj\Debug\моделирование.csprojResolveAssemblyReference.cache

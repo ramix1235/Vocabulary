@@ -27,3 +27,7 @@ D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\WordAddWindow.g.cs
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\WordAddWindow.baml
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\WordEditWindow.baml
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabularyAddWindow.g.cs
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabularyAddWindow.baml
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabularyEditWindow.g.cs
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\VocabularyEditWindow.baml

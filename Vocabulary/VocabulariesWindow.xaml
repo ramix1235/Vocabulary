@@ -10,17 +10,17 @@
     </Window.Background>
     <Grid>
         <WrapPanel Margin="0,0,10,10" Orientation="Vertical" Height="38" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="139">
-            <Button x:Name="btnOK" Click="btnAdd_Click" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" ToolTip="Добавить слово" Padding="0" Margin="0,10,10,0" Focusable="False">
+            <Button x:Name="btnOK" Click="btnAdd_Click" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" ToolTip="Добавить словарь" Padding="0" Margin="0,10,10,0" Focusable="False">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/add.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnDel" Click="btnDel_Click" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="27" Height="27" VerticalAlignment="Bottom" ToolTip="Удалить слово" RenderTransformOrigin="0.5,0.5" Padding="0" Margin="0,10,10,0" Focusable="False">
+            <Button x:Name="btnDel" Click="btnDel_Click" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="27" Height="27" VerticalAlignment="Bottom" ToolTip="Удалить словарь" RenderTransformOrigin="0.5,0.5" Padding="0" Margin="0,10,10,0" Focusable="False">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/delete2.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnEdit" Click="btnEdit_Click" BorderBrush="{x:Null}" Foreground="Black" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" ToolTip="Редактировать слово" Padding="0" Margin="0,10,10,0" Focusable="False">
+            <Button x:Name="btnEdit" Click="btnEdit_Click" BorderBrush="{x:Null}" Foreground="Black" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" ToolTip="Редактировать словарь" Padding="0" Margin="0,10,10,0" Focusable="False">
                 <Button.Background>
                     <ImageBrush ImageSource="Resources/edit2.png" Stretch="Uniform"/>
                 </Button.Background>

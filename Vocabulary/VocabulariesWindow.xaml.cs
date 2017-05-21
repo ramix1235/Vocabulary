@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using моделирование.DataAccess;
+using моделирование.Models;
 
 namespace Vocabulary
 {
@@ -13,6 +14,8 @@ namespace Vocabulary
     public partial class VocabulariesWindow : Window
     {
         private VocabularyWindow VocWin;
+        private VocabularyAddWindow vocAddWin;
+        private VocabularyEditWindow VocEditWin;
         public Window MainWin { get; set; }
         VocabularyContext db;
 
@@ -64,17 +67,51 @@ namespace Vocabulary
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            vocAddWin = new VocabularyAddWindow(dataGrid);
+            vocAddWin.Show();
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGrid.SelectedIndex == -1) return;
+            db = new VocabularyContext();
+            db.Words.Load();
+            db.Vocabularies.Load();
+            db.Categories.Load();
 
+            var currentVocabulary = (моделирование.Models.Vocabulary)dataGrid.SelectedItem;
+            var dbVocabulary = db.Vocabularies.Find(currentVocabulary.VocabularyID);
+            foreach (Word word in db.Words)
+            {
+                if (word.VocabularyID == currentVocabulary.VocabularyID)
+                {
+                    db.Words.Remove(word);
+                }
+            }
+            int entries = 0;
+            foreach (Category category in db.Categories)
+            {
+                if (category.CategoryID == currentVocabulary.CategoryID)
+                {
+                    entries++;
+                }
+            }
+            if (entries == 1)
+            {
+                var dbCategory = db.Categories.Find(currentVocabulary.CategoryID);
+                db.Categories.Remove(dbCategory);
+            }
+            db.Vocabularies.Remove(dbVocabulary);
+            db.SaveChanges();
+            //dataGrid.Items.Remove(currentVocabulary);
+            dataGrid.Items.Refresh();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dataGrid.SelectedIndex == -1) return;
+            VocEditWin = new VocabularyEditWindow(dataGrid);
+            VocEditWin.Show();
         }
     }
 }
