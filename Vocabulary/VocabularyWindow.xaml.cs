@@ -72,13 +72,21 @@ namespace Vocabulary
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             if (dataGrid.SelectedIndex == -1) return;
-            var currentWord = (Word)dataGrid.SelectedItem;
             db = new VocabularyContext();
             db.Words.Load();
+            db.Vocabularies.Load();
+
+            var currentWord = (Word)dataGrid.SelectedItem;
             var dbWord = db.Words.Find(currentWord.WordID);
             db.Words.Remove(dbWord);
+
+            currentVocabulary = (моделирование.Models.Vocabulary)dataGridVocabularies.SelectedItem;
+            var dbVocabulary = db.Vocabularies.Find(currentVocabulary.VocabularyID);
+            dbVocabulary.CountOfWord--;
             currentVocabulary.CountOfWord--;
+
             db.SaveChanges();
+            dataGrid.Items.Remove(currentWord);
             dataGrid.Items.Refresh();
             dataGridVocabularies.Items.Refresh();
         }

@@ -28,13 +28,16 @@ namespace Vocabulary
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            currentWord = (Word)dataGrid.SelectedItem;
             currentWord.EnglishTranslation = firstSymbolUp(textEng.Text);
             currentWord.RussianTranslation = firstSymbolUp(textRus.Text);
             db = new VocabularyContext();
             db.Words.Load();
+
             var dbWord = db.Words.Find(currentWord.WordID);
             dbWord.EnglishTranslation = currentWord.EnglishTranslation;
             dbWord.RussianTranslation = currentWord.RussianTranslation;
+
             db.SaveChanges();
             dataGrid.Items.Refresh();
             Close();

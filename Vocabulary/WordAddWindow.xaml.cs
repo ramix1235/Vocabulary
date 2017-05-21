@@ -27,15 +27,22 @@ namespace Vocabulary
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            currentVocabulary = (моделирование.Models.Vocabulary)dataGridVocabularies.SelectedItem;
             var newWorld = new Word();
             newWorld.EnglishTranslation = firstSymbolUp(textEng.Text);
             newWorld.RussianTranslation = firstSymbolUp(textRus.Text);
             newWorld.VocabularyID = currentVocabulary.VocabularyID;
             db = new VocabularyContext();
             db.Words.Load();
+            db.Vocabularies.Load();
             db.Words.Add(newWorld);
+
+            var dbVocabulary = db.Vocabularies.Find(currentVocabulary.VocabularyID);
+            dbVocabulary.CountOfWord++;
             currentVocabulary.CountOfWord++;
+
             db.SaveChanges();
+            dataGrid.Items.Add(newWorld);
             dataGrid.Items.Refresh();
             dataGridVocabularies.Items.Refresh();
             Close();
