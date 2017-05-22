@@ -24,7 +24,9 @@ namespace Vocabulary
             InitializeComponent();
             db = new VocabularyContext();
             db.Vocabularies.Load();
+            db.Score.Load();
             dataGrid.ItemsSource = db.Vocabularies.Local.ToList();
+            labeScore.Content = db.Score.Local.ToList()[0].Count;
         }
 
         /// <summary>
