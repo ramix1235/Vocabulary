@@ -39,3 +39,5 @@ D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\ShopWindow.baml
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\MessageWindow.g.cs
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\MessageWindow.baml
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\StatisticWindow.g.cs
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\StatisticWindow.baml

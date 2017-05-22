@@ -117,7 +117,7 @@ namespace моделирование.Fill
             {
                 new Score
                 {
-                    Count = 0
+                    Count = 10
                 }
             };
             using (var context = new VocabularyContext())

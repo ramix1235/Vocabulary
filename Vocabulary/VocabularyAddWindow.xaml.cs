@@ -33,17 +33,47 @@ namespace Vocabulary
 
             var newCategory = new Category();
             newCategory.Title = firstSymbolUp(textCategory.Text);
+            var isNewCategory = true;
+            foreach (Category category in db.Categories)
+            {
+                if (category.Title == newCategory.Title)
+                {
+                    isNewCategory = false;
+                }
+            }
+            if (isNewCategory == true)
+            {
+                if (db.Categories.Local.ToBindingList().Count == db.Limitation.Local.ToBindingList()[0].MaxCountOfCategory)
+                {
+                    MessageWindow MessWin = new MessageWindow("Ошибка", "Достигнут максимальный размер категорий");
+                    MessWin.ShowDialog();
+                    Close();
+                    return;
+                }
+                db.Categories.Add(newCategory);
 
-            db.Categories.Add(newCategory);
+            }
 
             var newLimitationForVocabulary = new LimitationForVocabulary();
             newLimitationForVocabulary.MaxCountOfWord = db.Limitation.Local.ToBindingList()[0].DefaultMaxCountOfWordsInVocabulary;
 
             db.LimitationForVocabulary.Add(newLimitationForVocabulary);
-
             var newVocabulary = new моделирование.Models.Vocabulary();
             newVocabulary.Title = firstSymbolUp(textTitle.Text);
-            newVocabulary.CategoryID = newCategory.CategoryID;
+            if (isNewCategory == true)
+            {
+                newVocabulary.CategoryID = newCategory.CategoryID;
+            }
+            else
+            {
+                foreach (Category category in db.Categories)
+                {
+                    if (category.Title == newCategory.Title)
+                    {
+                        newVocabulary.CategoryID = category.CategoryID;
+                    }
+                }
+            }
             newVocabulary.CountOfWord = 0;
             newVocabulary.LimitationForVocabularyID = newLimitationForVocabulary.LimitationForVocabularyID;
 

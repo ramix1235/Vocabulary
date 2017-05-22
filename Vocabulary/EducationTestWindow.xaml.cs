@@ -77,9 +77,15 @@ namespace Vocabulary
         private void btnQuestion_Click(object sender, RoutedEventArgs e)
         {
             if (isBtnQuestionClick == true) return;
-            isBtnQuestionClick = true;
             db = new VocabularyContext();
             db.Score.Load();
+            if (db.Score.Local.ToList()[0].Count < 1)
+            {
+                MessageWindow MessWin = new MessageWindow("Ошибка", "У вас недостаточно монет");
+                MessWin.ShowDialog();
+                return;
+            }
+            isBtnQuestionClick = true;
             labelScore.Content = --db.Score.Local.ToList()[0].Count;
             db.SaveChanges();
             textBlockQuestion.Visibility = Visibility.Visible;
