@@ -71,7 +71,7 @@
                 </Button.Background>
             </Button>
         </WrapPanel>
-        <Label x:Name="labeScore" Margin="50,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70" Content="0" Padding="0" VerticalContentAlignment="Center" Foreground="White" FontSize="14" />
+        <Label x:Name="labelScore" Margin="50,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70" Content="0" Padding="0" VerticalContentAlignment="Center" Foreground="White" FontSize="14" />
         <Image x:Name="imageScore" HorizontalAlignment="Left" Height="35" Margin="10,0,0,10" VerticalAlignment="Bottom" Source="Resources/coin.png" Width="35"/>
     </Grid>
 </Window>

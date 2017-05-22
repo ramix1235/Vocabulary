@@ -38,7 +38,7 @@ namespace Vocabulary
             }
             db = new VocabularyContext();
             db.Score.Load();
-            labeScore.Content = db.Score.Local.ToList()[0].Count;
+            labelScore.Content = db.Score.Local.ToList()[0].Count;
             randomWord(mode);
             btnNextWrd.Visibility = Visibility.Collapsed;
             textBlockQuestion.Visibility = Visibility.Collapsed;
@@ -80,7 +80,7 @@ namespace Vocabulary
             isBtnQuestionClick = true;
             db = new VocabularyContext();
             db.Score.Load();
-            labeScore.Content = --db.Score.Local.ToList()[0].Count;
+            labelScore.Content = --db.Score.Local.ToList()[0].Count;
             db.SaveChanges();
             textBlockQuestion.Visibility = Visibility.Visible;
             if (mode == "rusEng")
@@ -130,7 +130,7 @@ namespace Vocabulary
                         {
                             db = new VocabularyContext();
                             db.Score.Load();
-                            labeScore.Content = ++db.Score.Local.ToList()[0].Count;
+                            labelScore.Content = ++db.Score.Local.ToList()[0].Count;
                             db.SaveChanges();
                             isRightAnswer = true;
                         }
@@ -156,7 +156,7 @@ namespace Vocabulary
                         {
                             db = new VocabularyContext();
                             db.Score.Load();
-                            labeScore.Content = ++db.Score.Local.ToList()[0].Count;
+                            labelScore.Content = ++db.Score.Local.ToList()[0].Count;
                             db.SaveChanges();
                             isRightAnswer = true;
                         }

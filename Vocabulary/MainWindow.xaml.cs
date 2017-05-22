@@ -11,6 +11,7 @@ namespace Vocabulary
     {
         private VocabulariesWindow vocWin;
         private EducationWindow edWin;
+        private ShopWindow shopWin;
 
         public MainWindow()
         {
@@ -60,6 +61,14 @@ namespace Vocabulary
             edWin = new EducationWindow();
             edWin.Show();
             edWin.MainWin = this;
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnShop_Click(object sender, RoutedEventArgs e)
+        {
+            shopWin = new ShopWindow();
+            shopWin.Show();
+            shopWin.MainWin = this;
             WindowState = WindowState.Minimized;
         }
     }

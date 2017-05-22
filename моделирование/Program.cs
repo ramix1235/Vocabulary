@@ -16,18 +16,20 @@ namespace моделирование
                 int nCategory;
                 int nEducation;
                 int nLimitation;
+                int nLimitationForVocabulary;
                 int nProduct;
                 int nScore;
                 int nShop;
                 int nStatistic;
                 int nVocabulary;
                 int nWord;
-                DataAdd.FillDB(out nCategory, out nEducation, out nLimitation, out nProduct, out nScore, out nShop, out nStatistic, out nVocabulary, out nWord);
+                DataAdd.FillDB(out nCategory, out nEducation, out nLimitation, out nLimitationForVocabulary, out nProduct, out nScore, out nShop, out nStatistic, out nVocabulary, out nWord);
                 Console.WriteLine("База данных на SQL Server создана"
                 + " и заполнена." + "\n В таблицы записано следующее количество строк:\n"
                 + "Categories– " + nCategory
                 + ", Education– " + nEducation
                 + ", Limitation– " + nLimitation
+                + ", LimitationForVocabulary– " + nLimitationForVocabulary
                 + ", Products– " + nProduct
                 + ", Score– " + nScore
                 + ", Shop– " + nShop

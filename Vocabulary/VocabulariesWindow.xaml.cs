@@ -26,7 +26,7 @@ namespace Vocabulary
             db.Vocabularies.Load();
             db.Score.Load();
             dataGrid.ItemsSource = db.Vocabularies.Local.ToList();
-            labeScore.Content = db.Score.Local.ToList()[0].Count;
+            labelScore.Content = db.Score.Local.ToList()[0].Count;
         }
 
         /// <summary>
@@ -80,9 +80,13 @@ namespace Vocabulary
             db.Words.Load();
             db.Vocabularies.Load();
             db.Categories.Load();
+            db.LimitationForVocabulary.Load();
 
             var currentVocabulary = (моделирование.Models.Vocabulary)dataGrid.SelectedItem;
             var dbVocabulary = db.Vocabularies.Find(currentVocabulary.VocabularyID);
+            var dbLimitationForVocabulary = db.LimitationForVocabulary.Find(currentVocabulary.LimitationForVocabularyID);
+            db.LimitationForVocabulary.Remove(dbLimitationForVocabulary);
+
             foreach (Word word in db.Words)
             {
                 if (word.VocabularyID == currentVocabulary.VocabularyID)

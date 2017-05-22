@@ -7,7 +7,7 @@ namespace моделирование.Fill
 {
     class DataAdd
     {
-        public static void FillDB(out int nCategory, out int nEducation, out int nLimitation, out int nProduct, out int nScore, out int nShop, out int nStatistic, out int nVocabulary, out int nWord)
+        public static void FillDB(out int nCategory, out int nEducation, out int nLimitation, out int nLimitationForVocabulary, out int nProduct, out int nScore, out int nShop, out int nStatistic, out int nVocabulary, out int nWord)
         {
             var categories = new List<Category>
             {
@@ -52,8 +52,8 @@ namespace моделирование.Fill
                 new Limitation
                 {
                     MaxCountOfCategory = 3,
-                    MaxCountOfVocabulary = 5,
-                    MaxCountOfWordInVocabulary = 50
+                    MaxCountOfVocabulary = 3,
+                    DefaultMaxCountOfWordsInVocabulary = 50
                 }
             };
             using (var context = new VocabularyContext())
@@ -63,24 +63,46 @@ namespace моделирование.Fill
                 nLimitation = context.Limitation.Count();
             }
 
+            var limitationForVocabulary = new List<LimitationForVocabulary>
+            {
+                new LimitationForVocabulary
+                {
+                    MaxCountOfWord = 50,
+                },
+                new LimitationForVocabulary
+                {
+                    MaxCountOfWord = 50,
+                },
+                new LimitationForVocabulary
+                {
+                    MaxCountOfWord = 50,
+                }
+            };
+            using (var context = new VocabularyContext())
+            {
+                limitationForVocabulary.ForEach(p => context.LimitationForVocabulary.Add(p));
+                context.SaveChanges();
+                nLimitationForVocabulary = context.LimitationForVocabulary.Count();
+            }
+
             var products = new List<Product>
             {
                 new Product
                 {
                    Title = @"Словарь",
-                   Description = @"Вы можете увеличить максимальное количество словарей",
+                   Description = @"Вы можете увеличить максимальное количество словарей на 1",
                    Price = 50M
                 },
                 new Product
                 {
                    Title = @"Категория",
-                   Description = @"Вы можете увеличить максимальное количество категорий",
-                   Price = 25M
+                   Description = @"Вы можете увеличить максимальное количество категорий на 1",
+                   Price = 15M
                 },
                 new Product
                 {
                    Title = @"Расширить словарь",
-                   Description = @"Вы можете увеличить максимальное количество слов в словаре",
+                   Description = @"Вы можете увеличить максимальное количество слов в словаре на 10",
                    Price = 10M
                 }
             };
@@ -139,19 +161,22 @@ namespace моделирование.Fill
                 {
                     Title = @"Словарь 1",
                     CountOfWord = 3,
-                    CategoryID = 1
+                    CategoryID = 1,
+                    LimitationForVocabularyID = 1
                 },
                 new Vocabulary
                 {
                     Title = @"Словарь 2",
                     CountOfWord = 3,
-                    CategoryID = 2
+                    CategoryID = 2,
+                    LimitationForVocabularyID = 2
                 },
                 new Vocabulary
                 {
                     Title = @"Словарь 3",
                     CountOfWord = 3,
-                    CategoryID = 3
+                    CategoryID = 3,
+                    LimitationForVocabularyID = 3
                 }
             };
             using (var context = new VocabularyContext())

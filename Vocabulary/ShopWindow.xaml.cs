@@ -8,20 +8,20 @@ namespace Vocabulary
 {
 
     /// <summary>
-    /// Логика взаимодействия для Education.xaml
+    /// Логика взаимодействия для ShopWindow.xaml
     /// </summary>
-    public partial class EducationWindow : Window
+    public partial class ShopWindow : Window
     {
         public Window MainWin { get; set; }
-        public EducationTestWindow edTestWin;
-        public string mode;
         VocabularyContext db;
 
-        public EducationWindow()
+        public ShopWindow()
         {
             InitializeComponent();
             db = new VocabularyContext();
+            db.Products.Load();
             db.Score.Load();
+            dataGrid.ItemsSource = db.Products.Local.ToList();
             labelScore.Content = db.Score.Local.ToList()[0].Count;
         }
 
@@ -53,22 +53,12 @@ namespace Vocabulary
             }
         }
 
-        private void btnRusEng_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// При двойном нажатии мышки, покупаем товар
+        /// </summary>
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            mode = "rusEng";
-            edTestWin = new EducationTestWindow(mode);
-            edTestWin.Show();
-            edTestWin.MainWin = MainWin;
-            Close();
-        }
-
-        private void btnEngRus_Click(object sender, RoutedEventArgs e)
-        {
-            mode = "engRus";
-            edTestWin = new EducationTestWindow(mode);
-            edTestWin.Show();
-            edTestWin.MainWin = MainWin;
-            Close();
+            if (dataGrid.SelectedIndex == -1) return;
         }
     }
 }

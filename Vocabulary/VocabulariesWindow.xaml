@@ -31,7 +31,7 @@
                 </Button.Background>
             </Button>
         </WrapPanel>
-        <Label x:Name="labeScore" Margin="50,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70" Content="0" Padding="0" VerticalContentAlignment="Center" Foreground="White" FontSize="14" />
+        <Label x:Name="labelScore" Margin="50,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70" Content="0" Padding="0" VerticalContentAlignment="Center" Foreground="White" FontSize="14" />
         <Image x:Name="imageScore" HorizontalAlignment="Left" Height="35" Margin="10,0,0,10" VerticalAlignment="Bottom" Source="Resources/coin.png" Width="35"/>
         <DataGrid x:Name="dataGrid" Margin="10,10,10,53" IsReadOnly="True" BorderBrush="{x:Null}" Foreground="White" AutoGenerateColumns="False" GridLinesVisibility="None" HeadersVisibility="Column" SelectionMode="Single" FontSize="16" MouseDoubleClick="dataGrid_MouseDoubleClick">
             <DataGrid.Background>
@@ -41,6 +41,7 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
                 <DataGridTextColumn Header="Категория" Binding="{Binding Category.Title}"/>
                 <DataGridTextColumn Header="Количество слов" Binding="{Binding CountOfWord}"/>
+                <DataGridTextColumn Header="Вместимость словаря" Binding="{Binding LimitationForVocabulary.MaxCountOfWord}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

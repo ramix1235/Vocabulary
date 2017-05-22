@@ -65,7 +65,7 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <Button x:Name="btnShop" Content="Магазин" FontSize="14" BorderBrush="{x:Null}" Foreground="White" OpacityMask="{x:Null}" Margin="150,5" Height="43" Padding="0" Focusable="False">
+                <Button x:Name="btnShop" Content="Магазин" FontSize="14" BorderBrush="{x:Null}" Foreground="White" OpacityMask="{x:Null}" Margin="150,5" Height="43" Padding="0" Focusable="False" Click="btnShop_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/button.png"/>
                     </Button.Background>

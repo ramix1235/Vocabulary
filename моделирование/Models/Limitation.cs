@@ -5,6 +5,6 @@
         public int LimitationID { get; set; }
         public int MaxCountOfCategory { get; set; }
         public int MaxCountOfVocabulary { get; set; }
-        public int MaxCountOfWordInVocabulary { get; set; }
+        public int DefaultMaxCountOfWordsInVocabulary { get; set; }
     }
 }

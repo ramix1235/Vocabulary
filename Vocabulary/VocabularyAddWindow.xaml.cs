@@ -25,19 +25,27 @@ namespace Vocabulary
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            var newCategory = new Category();
-            newCategory.Title = firstSymbolUp(textCategory.Text);
-
             db = new VocabularyContext();
             db.Categories.Load();
             db.Vocabularies.Load();
+            db.Limitation.Load();
+            db.LimitationForVocabulary.Load();
+
+            var newCategory = new Category();
+            newCategory.Title = firstSymbolUp(textCategory.Text);
 
             db.Categories.Add(newCategory);
+
+            var newLimitationForVocabulary = new LimitationForVocabulary();
+            newLimitationForVocabulary.MaxCountOfWord = db.Limitation.Local.ToBindingList()[0].DefaultMaxCountOfWordsInVocabulary;
+
+            db.LimitationForVocabulary.Add(newLimitationForVocabulary);
 
             var newVocabulary = new моделирование.Models.Vocabulary();
             newVocabulary.Title = firstSymbolUp(textTitle.Text);
             newVocabulary.CategoryID = newCategory.CategoryID;
             newVocabulary.CountOfWord = 0;
+            newVocabulary.LimitationForVocabularyID = newLimitationForVocabulary.LimitationForVocabularyID;
 
             db.Vocabularies.Add(newVocabulary);
 

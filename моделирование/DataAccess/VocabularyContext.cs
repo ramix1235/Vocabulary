@@ -8,6 +8,7 @@ namespace моделирование.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Education> Education { get; set; }
         public DbSet<Limitation> Limitation { get; set; }
+        public DbSet<LimitationForVocabulary> LimitationForVocabulary { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Score> Score { get; set; }
         public DbSet<Shop> Shop { get; set; }
