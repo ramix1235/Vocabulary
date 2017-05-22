@@ -9,7 +9,8 @@ namespace Vocabulary
     /// </summary>
     public partial class MainWindow : Window
     {
-        private VocabulariesWindow vocWin; // окно словаря
+        private VocabulariesWindow vocWin;
+        private EducationWindow edWin;
 
         public MainWindow()
         {
@@ -52,6 +53,14 @@ namespace Vocabulary
             {
                 Close();
             }
+        }
+
+        private void btnTraining_Click(object sender, RoutedEventArgs e)
+        {
+            edWin = new EducationWindow();
+            edWin.Show();
+            edWin.MainWin = this;
+            WindowState = WindowState.Minimized;
         }
     }
 }
