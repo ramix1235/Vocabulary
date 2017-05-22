@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
         xmlns:local="clr-namespace:Vocabulary"
-        mc:Ignorable="d" Height="600" Width="699.7" Foreground="{x:Null}" WindowStyle="None" Icon="Resources/icon.ico" WindowStartupLocation="CenterScreen" FontFamily="Century Gothic" KeyDown="Window_KeyDown" MouseLeftButtonDown="Window_MouseLeftButtonDown" Topmost="True">
+        mc:Ignorable="d" Height="600" Width="681" Foreground="{x:Null}" WindowStyle="None" Icon="Resources/icon.ico" WindowStartupLocation="CenterScreen" FontFamily="Century Gothic" KeyDown="Window_KeyDown" MouseLeftButtonDown="Window_MouseLeftButtonDown" Topmost="True">
     <Window.Background>
         <ImageBrush ImageSource="Resources/backgroundVocabularies.jpg"/>
     </Window.Background>
@@ -14,6 +15,8 @@
                 <ImageBrush ImageSource="Resources/exit.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <WindowsFormsHost Margin="10,10,10,42"/>
+        <WindowsFormsHost Margin="10,10,10,330">
+            <rv:ReportViewer x:Name="_reportViewer"/>
+        </WindowsFormsHost>
     </Grid>
 </Window>

@@ -41,3 +41,7 @@ D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\MessageWindow.baml
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\StatisticWindow.g.cs
 D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\StatisticWindow.baml
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\RdlCompile.cache
+D:\Обучение\3 курс 2 семестр\БД\Курсовой\Vocabulary\Vocabulary\Vocabulary\obj\Debug\RdlCompile.compiled

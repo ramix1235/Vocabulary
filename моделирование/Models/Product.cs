@@ -11,9 +11,5 @@ namespace моделирование.Models
         [MaxLength(150)]
         public string Description { get; set; }
         public Decimal Price { get; set; }
-        //[NotMapped]
-        //public int Shop_ShopID { get; set; }
-
-        //public virtual Shop Shop { get; set; }
     }
 }

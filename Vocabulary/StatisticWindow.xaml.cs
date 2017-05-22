@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Vocabulary
@@ -9,10 +10,35 @@ namespace Vocabulary
     public partial class StatisticWindow : Window
     {
         public Window MainWin { get; set; }
+        private bool _isReportViewerLoaded;
 
         public StatisticWindow()
         {
             InitializeComponent();
+            _reportViewer.Load += ReportViewer_Load;
+        }
+
+        private void ReportViewer_Load(object sender, EventArgs e)
+        {
+            if (!_isReportViewerLoaded)
+            {
+                Microsoft.Reporting.WinForms.ReportDataSource reportDataSource = new Microsoft.Reporting.WinForms.ReportDataSource();
+                VocabularyDataSet dataset = new VocabularyDataSet();
+                dataset.BeginInit();
+                reportDataSource.Name = "DataSet";
+                //Name of the report dataset in our .RDLC file
+                reportDataSource.Value = dataset.Words;
+                _reportViewer.LocalReport.DataSources.Add(reportDataSource);
+                _reportViewer.LocalReport.ReportPath = "../../ReportAllWords.rdlc";
+                dataset.EndInit();
+                //fill data into WpfApplication4DataSet
+                VocabularyDataSetTableAdapters.WordsTableAdapter wordsTableAdapter = new VocabularyDataSetTableAdapters.WordsTableAdapter();
+
+                wordsTableAdapter.ClearBeforeFill = true;
+                wordsTableAdapter.Fill(dataset.Words);
+                _reportViewer.RefreshReport();
+                _isReportViewerLoaded = true;
+            }
         }
 
         /// <summary>
