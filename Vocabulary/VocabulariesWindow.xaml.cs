@@ -69,6 +69,15 @@ namespace Vocabulary
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            db = new VocabularyContext();
+            db.Limitation.Load();
+            var currentLimitation = db.Limitation.Local.ToList()[0].MaxCountOfVocabulary;
+            if (currentLimitation == dataGrid.Items.Count)
+            {
+                MessageWindow MessWin = new MessageWindow("Ошибка", "Достигнуто максимальное количество словарей");
+                MessWin.ShowDialog();
+                return;
+            }
             vocAddWin = new VocabularyAddWindow(dataGrid);
             vocAddWin.Show();
         }

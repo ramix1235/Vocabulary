@@ -23,10 +23,22 @@ namespace Vocabulary
             this.dataGridVocabularies = dataGridVocabularies;
             this.dataGrid = dataGrid;
             currentVocabulary = (моделирование.Models.Vocabulary)dataGridVocabularies.SelectedItem;
+            if (currentVocabulary.LimitationForVocabulary.MaxCountOfWord == currentVocabulary.CountOfWord)
+            {
+                MessageWindow MessWin = new MessageWindow("Ошибка", "Достигнут максимальный размер словаря");
+                MessWin.ShowDialog();
+                Close();
+            }
+            else
+            {
+                Show();
+            }
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            // проверить, это новая категория или существующая
+            // если новая, то проверить ограничение по категориям
             currentVocabulary = (моделирование.Models.Vocabulary)dataGridVocabularies.SelectedItem;
             var newWorld = new Word();
             newWorld.EnglishTranslation = firstSymbolUp(textEng.Text);

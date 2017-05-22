@@ -94,7 +94,7 @@ namespace Vocabulary
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             wordAddWin = new WordAddWindow(dataGridVocabularies, dataGrid);
-            wordAddWin.Show();
+            //wordAddWin.Show();
         }
     }
 }

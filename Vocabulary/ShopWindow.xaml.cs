@@ -21,8 +21,13 @@ namespace Vocabulary
             db = new VocabularyContext();
             db.Products.Load();
             db.Score.Load();
+            db.Categories.Load();
+            db.Vocabularies.Load();
+            db.Limitation.Load();
             dataGrid.ItemsSource = db.Products.Local.ToList();
             labelScore.Content = db.Score.Local.ToList()[0].Count;
+            labelCategoriesScore.Content = db.Categories.Local.ToList().Count + "/" + db.Limitation.Local.ToList()[0].MaxCountOfCategory;
+            labelVocabulariesScore.Content = db.Vocabularies.Local.ToList().Count + "/" + db.Limitation.Local.ToList()[0].MaxCountOfVocabulary;
         }
 
         /// <summary>
