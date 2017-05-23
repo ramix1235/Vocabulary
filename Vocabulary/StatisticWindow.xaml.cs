@@ -31,7 +31,7 @@ namespace Vocabulary
                 _reportViewer.LocalReport.DataSources.Add(reportDataSource);
                 _reportViewer.LocalReport.ReportPath = "../../ReportAllWords.rdlc";
                 dataset.EndInit();
-                //fill data into WpfApplication4DataSet
+                //fill data
                 VocabularyDataSetTableAdapters.WordsTableAdapter wordsTableAdapter = new VocabularyDataSetTableAdapters.WordsTableAdapter();
 
                 wordsTableAdapter.ClearBeforeFill = true;

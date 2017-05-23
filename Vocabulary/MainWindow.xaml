@@ -86,7 +86,7 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <Button x:Name="btnStatistic" Content="Статистика" FontSize="14" BorderBrush="{x:Null}" Foreground="White" Margin="150,5" Height="43" Padding="0" Focusable="False" Click="btnStatistic_Click">
+                <Button x:Name="btnStatistic" Content="Отчеты" FontSize="14" BorderBrush="{x:Null}" Foreground="White" Margin="150,5" Height="43" Padding="0" Focusable="False" Click="btnStatistic_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/button.png"/>
                     </Button.Background>

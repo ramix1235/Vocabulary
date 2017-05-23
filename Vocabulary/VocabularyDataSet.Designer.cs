@@ -60,8 +60,6 @@ namespace Vocabulary {
         
         private global::System.Data.DataRelation _relationFK_dbo_Vocabularies_dbo_Statistics_Statistic_StatisticID;
         
-        private global::System.Data.DataRelation _relationFK_dbo_Words_dbo_Vocabularies_VocabularyID;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -457,7 +455,6 @@ namespace Vocabulary {
             this._relationFK_dbo_Vocabularies_dbo_Categories_CategoryID = this.Relations["FK_dbo.Vocabularies_dbo.Categories_CategoryID"];
             this._relationFK_dbo_Vocabularies_dbo_LimitationForVocabularies_LimitationForVocabularyID = this.Relations["FK_dbo.Vocabularies_dbo.LimitationForVocabularies_LimitationForVocabularyID"];
             this._relationFK_dbo_Vocabularies_dbo_Statistics_Statistic_StatisticID = this.Relations["FK_dbo.Vocabularies_dbo.Statistics_Statistic_StatisticID"];
-            this._relationFK_dbo_Words_dbo_Vocabularies_VocabularyID = this.Relations["FK_dbo.Words_dbo.Vocabularies_VocabularyID"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -518,10 +515,6 @@ namespace Vocabulary {
                         this.tableStatistics.StatisticIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableVocabularies.Statistic_StatisticIDColumn}, false);
             this.Relations.Add(this._relationFK_dbo_Vocabularies_dbo_Statistics_Statistic_StatisticID);
-            this._relationFK_dbo_Words_dbo_Vocabularies_VocabularyID = new global::System.Data.DataRelation("FK_dbo.Words_dbo.Vocabularies_VocabularyID", new global::System.Data.DataColumn[] {
-                        this.tableVocabularies.VocabularyIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableWords.VocabularyIDColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_Words_dbo_Vocabularies_VocabularyID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3374,13 +3367,15 @@ namespace Vocabulary {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class WordsDataTable : global::System.Data.TypedTableBase<WordsRow> {
             
-            private global::System.Data.DataColumn columnWordID;
-            
             private global::System.Data.DataColumn columnRussianTranslation;
             
             private global::System.Data.DataColumn columnEnglishTranslation;
             
-            private global::System.Data.DataColumn columnVocabularyID;
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnTitle1;
+            
+            private global::System.Data.DataColumn columnCountOfWord;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3417,14 +3412,6 @@ namespace Vocabulary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WordIDColumn {
-                get {
-                    return this.columnWordID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn RussianTranslationColumn {
                 get {
                     return this.columnRussianTranslation;
@@ -3441,9 +3428,25 @@ namespace Vocabulary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn VocabularyIDColumn {
+            public global::System.Data.DataColumn TitleColumn {
                 get {
-                    return this.columnVocabularyID;
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title1Column {
+                get {
+                    return this.columnTitle1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CountOfWordColumn {
+                get {
+                    return this.columnCountOfWord;
                 }
             }
             
@@ -3484,26 +3487,17 @@ namespace Vocabulary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WordsRow AddWordsRow(string RussianTranslation, string EnglishTranslation, VocabulariesRow _parentVocabulariesRowByFK_dbo_Words_dbo_Vocabularies_VocabularyID) {
+            public WordsRow AddWordsRow(string RussianTranslation, string EnglishTranslation, string Title, string Title1, int CountOfWord) {
                 WordsRow rowWordsRow = ((WordsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         RussianTranslation,
                         EnglishTranslation,
-                        null};
-                if ((_parentVocabulariesRowByFK_dbo_Words_dbo_Vocabularies_VocabularyID != null)) {
-                    columnValuesArray[3] = _parentVocabulariesRowByFK_dbo_Words_dbo_Vocabularies_VocabularyID[0];
-                }
+                        Title,
+                        Title1,
+                        CountOfWord};
                 rowWordsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWordsRow);
                 return rowWordsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WordsRow FindByWordID(int WordID) {
-                return ((WordsRow)(this.Rows.Find(new object[] {
-                            WordID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3523,34 +3517,31 @@ namespace Vocabulary {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnWordID = base.Columns["WordID"];
                 this.columnRussianTranslation = base.Columns["RussianTranslation"];
                 this.columnEnglishTranslation = base.Columns["EnglishTranslation"];
-                this.columnVocabularyID = base.Columns["VocabularyID"];
+                this.columnTitle = base.Columns["Title"];
+                this.columnTitle1 = base.Columns["Title1"];
+                this.columnCountOfWord = base.Columns["CountOfWord"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnWordID = new global::System.Data.DataColumn("WordID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWordID);
                 this.columnRussianTranslation = new global::System.Data.DataColumn("RussianTranslation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRussianTranslation);
                 this.columnEnglishTranslation = new global::System.Data.DataColumn("EnglishTranslation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnglishTranslation);
-                this.columnVocabularyID = new global::System.Data.DataColumn("VocabularyID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVocabularyID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnWordID}, true));
-                this.columnWordID.AutoIncrement = true;
-                this.columnWordID.AutoIncrementSeed = -1;
-                this.columnWordID.AutoIncrementStep = -1;
-                this.columnWordID.AllowDBNull = false;
-                this.columnWordID.ReadOnly = true;
-                this.columnWordID.Unique = true;
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnTitle1 = new global::System.Data.DataColumn("Title1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle1);
+                this.columnCountOfWord = new global::System.Data.DataColumn("CountOfWord", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCountOfWord);
                 this.columnRussianTranslation.MaxLength = 200;
                 this.columnEnglishTranslation.MaxLength = 200;
-                this.columnVocabularyID.AllowDBNull = false;
+                this.columnTitle.MaxLength = 20;
+                this.columnTitle1.MaxLength = 20;
+                this.columnCountOfWord.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4757,17 +4748,6 @@ namespace Vocabulary {
             public void SetStatistic_StatisticIDNull() {
                 this[this.tableVocabularies.Statistic_StatisticIDColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WordsRow[] GetWordsRows() {
-                if ((this.Table.ChildRelations["FK_dbo.Words_dbo.Vocabularies_VocabularyID"] == null)) {
-                    return new WordsRow[0];
-                }
-                else {
-                    return ((WordsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Words_dbo.Vocabularies_VocabularyID"])));
-                }
-            }
         }
         
         /// <summary>
@@ -4782,17 +4762,6 @@ namespace Vocabulary {
             internal WordsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableWords = ((WordsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int WordID {
-                get {
-                    return ((int)(this[this.tableWords.WordIDColumn]));
-                }
-                set {
-                    this[this.tableWords.WordIDColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4829,23 +4798,44 @@ namespace Vocabulary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int VocabularyID {
+            public string Title {
                 get {
-                    return ((int)(this[this.tableWords.VocabularyIDColumn]));
+                    try {
+                        return ((string)(this[this.tableWords.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Title\' в таблице \'Words\' равно DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableWords.VocabularyIDColumn] = value;
+                    this[this.tableWords.TitleColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VocabulariesRow VocabulariesRow {
+            public string Title1 {
                 get {
-                    return ((VocabulariesRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Words_dbo.Vocabularies_VocabularyID"])));
+                    try {
+                        return ((string)(this[this.tableWords.Title1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Title1\' в таблице \'Words\' равно DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Words_dbo.Vocabularies_VocabularyID"]);
+                    this[this.tableWords.Title1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CountOfWord {
+                get {
+                    return ((int)(this[this.tableWords.CountOfWordColumn]));
+                }
+                set {
+                    this[this.tableWords.CountOfWordColumn] = value;
                 }
             }
             
@@ -4871,6 +4861,30 @@ namespace Vocabulary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEnglishTranslationNull() {
                 this[this.tableWords.EnglishTranslationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableWords.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableWords.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle1Null() {
+                return this.IsNull(this.tableWords.Title1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle1Null() {
+                this[this.tableWords.Title1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -8424,44 +8438,12 @@ SELECT VocabularyID, Title, CountOfWord, CategoryID, LimitationForVocabularyID, 
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Words";
-            tableMapping.ColumnMappings.Add("WordID", "WordID");
             tableMapping.ColumnMappings.Add("RussianTranslation", "RussianTranslation");
             tableMapping.ColumnMappings.Add("EnglishTranslation", "EnglishTranslation");
-            tableMapping.ColumnMappings.Add("VocabularyID", "VocabularyID");
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("Title1", "Title1");
+            tableMapping.ColumnMappings.Add("CountOfWord", "CountOfWord");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Words] WHERE (([WordID] = @Original_WordID) AND ((@IsNull_RussianTranslation = 1 AND [RussianTranslation] IS NULL) OR ([RussianTranslation] = @Original_RussianTranslation)) AND ((@IsNull_EnglishTranslation = 1 AND [EnglishTranslation] IS NULL) OR ([EnglishTranslation] = @Original_EnglishTranslation)) AND ([VocabularyID] = @Original_VocabularyID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WordID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WordID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RussianTranslation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RussianTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EnglishTranslation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnglishTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VocabularyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VocabularyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Words] ([RussianTranslation], [EnglishTranslation], [VocabularyID]) VALUES (@RussianTranslation, @EnglishTranslation, @VocabularyID);
-SELECT WordID, RussianTranslation, EnglishTranslation, VocabularyID FROM Words WHERE (WordID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RussianTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnglishTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VocabularyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VocabularyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Words] SET [RussianTranslation] = @RussianTranslation, [EnglishTranslation] = @EnglishTranslation, [VocabularyID] = @VocabularyID WHERE (([WordID] = @Original_WordID) AND ((@IsNull_RussianTranslation = 1 AND [RussianTranslation] IS NULL) OR ([RussianTranslation] = @Original_RussianTranslation)) AND ((@IsNull_EnglishTranslation = 1 AND [EnglishTranslation] IS NULL) OR ([EnglishTranslation] = @Original_EnglishTranslation)) AND ([VocabularyID] = @Original_VocabularyID));
-SELECT WordID, RussianTranslation, EnglishTranslation, VocabularyID FROM Words WHERE (WordID = @WordID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RussianTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnglishTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VocabularyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VocabularyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WordID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WordID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RussianTranslation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RussianTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RussianTranslation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EnglishTranslation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnglishTranslation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnglishTranslation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VocabularyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VocabularyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WordID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WordID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8478,8 +8460,9 @@ SELECT WordID, RussianTranslation, EnglishTranslation, VocabularyID FROM Words W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT WordID, RussianTranslation, EnglishTranslation, VocabularyID FROM dbo.Word" +
-                "s";
+            this._commandCollection[0].CommandText = @"SELECT dbo.Words.RussianTranslation, dbo.Words.EnglishTranslation, dbo.Vocabularies.Title, dbo.Vocabularies.CountOfWord, dbo.Categories.Title
+FROM dbo.Words, dbo.Vocabularies, dbo.Categories
+WHERE dbo.Words.VocabularyID = dbo.Vocabularies.VocabularyID AND dbo.Vocabularies.CategoryID = dbo.Categories.CategoryID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8505,169 +8488,6 @@ SELECT WordID, RussianTranslation, EnglishTranslation, VocabularyID FROM Words W
             VocabularyDataSet.WordsDataTable dataTable = new VocabularyDataSet.WordsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VocabularyDataSet.WordsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VocabularyDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Words");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_WordID, string Original_RussianTranslation, string Original_EnglishTranslation, int Original_VocabularyID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_WordID));
-            if ((Original_RussianTranslation == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_RussianTranslation));
-            }
-            if ((Original_EnglishTranslation == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_EnglishTranslation));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_VocabularyID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string RussianTranslation, string EnglishTranslation, int VocabularyID) {
-            if ((RussianTranslation == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RussianTranslation));
-            }
-            if ((EnglishTranslation == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(EnglishTranslation));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(VocabularyID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string RussianTranslation, string EnglishTranslation, int VocabularyID, int Original_WordID, string Original_RussianTranslation, string Original_EnglishTranslation, int Original_VocabularyID, int WordID) {
-            if ((RussianTranslation == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RussianTranslation));
-            }
-            if ((EnglishTranslation == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(EnglishTranslation));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(VocabularyID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_WordID));
-            if ((Original_RussianTranslation == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_RussianTranslation));
-            }
-            if ((Original_EnglishTranslation == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_EnglishTranslation));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_VocabularyID));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(WordID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string RussianTranslation, string EnglishTranslation, int VocabularyID, int Original_WordID, string Original_RussianTranslation, string Original_EnglishTranslation, int Original_VocabularyID) {
-            return this.Update(RussianTranslation, EnglishTranslation, VocabularyID, Original_WordID, Original_RussianTranslation, Original_EnglishTranslation, Original_VocabularyID, Original_WordID);
         }
     }
     
@@ -9087,8 +8907,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
         
         private VocabulariesTableAdapter _vocabulariesTableAdapter;
         
-        private WordsTableAdapter _wordsTableAdapter;
-        
         private @__MigrationHistoryTableAdapter ___MigrationHistoryTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -9237,20 +9055,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public WordsTableAdapter WordsTableAdapter {
-            get {
-                return this._wordsTableAdapter;
-            }
-            set {
-                this._wordsTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public @__MigrationHistoryTableAdapter @__MigrationHistoryTableAdapter {
             get {
                 return this.___MigrationHistoryTableAdapter;
@@ -9315,10 +9119,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                             && (this._vocabulariesTableAdapter.Connection != null))) {
                     return this._vocabulariesTableAdapter.Connection;
                 }
-                if (((this._wordsTableAdapter != null) 
-                            && (this._wordsTableAdapter.Connection != null))) {
-                    return this._wordsTableAdapter.Connection;
-                }
                 if (((this.___MigrationHistoryTableAdapter != null) 
                             && (this.___MigrationHistoryTableAdapter.Connection != null))) {
                     return this.___MigrationHistoryTableAdapter.Connection;
@@ -9361,9 +9161,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     count = (count + 1);
                 }
                 if ((this._vocabulariesTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._wordsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this.___MigrationHistoryTableAdapter != null)) {
@@ -9434,15 +9231,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._vocabulariesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._vocabulariesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._limitationsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Limitations.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -9461,12 +9249,12 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._wordsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Words.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._vocabulariesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._wordsTableAdapter.Update(updatedRows));
+                    result = (result + this._vocabulariesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9537,14 +9325,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._vocabulariesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._vocabulariesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._limitationsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Limitations.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -9561,11 +9341,11 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._wordsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Words.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._vocabulariesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._wordsTableAdapter.Update(addedRows));
+                    result = (result + this._vocabulariesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -9595,11 +9375,11 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._wordsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Words.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._vocabulariesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._wordsTableAdapter.Update(deletedRows));
+                    result = (result + this._vocabulariesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -9616,14 +9396,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._limitationsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._vocabulariesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Vocabularies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._vocabulariesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -9759,11 +9531,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._wordsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._wordsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             if (((this.___MigrationHistoryTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this.___MigrationHistoryTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -9882,15 +9649,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                         adaptersWithAcceptChangesDuringUpdate.Add(this._vocabulariesTableAdapter.Adapter);
                     }
                 }
-                if ((this._wordsTableAdapter != null)) {
-                    revertConnections.Add(this._wordsTableAdapter, this._wordsTableAdapter.Connection);
-                    this._wordsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._wordsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._wordsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._wordsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._wordsTableAdapter.Adapter);
-                    }
-                }
                 if ((this.___MigrationHistoryTableAdapter != null)) {
                     revertConnections.Add(this.___MigrationHistoryTableAdapter, this.___MigrationHistoryTableAdapter.Connection);
                     this.___MigrationHistoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -9993,10 +9751,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
                 if ((this._vocabulariesTableAdapter != null)) {
                     this._vocabulariesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vocabulariesTableAdapter]));
                     this._vocabulariesTableAdapter.Transaction = null;
-                }
-                if ((this._wordsTableAdapter != null)) {
-                    this._wordsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._wordsTableAdapter]));
-                    this._wordsTableAdapter.Transaction = null;
                 }
                 if ((this.___MigrationHistoryTableAdapter != null)) {
                     this.___MigrationHistoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this.___MigrationHistoryTableAdapter]));
