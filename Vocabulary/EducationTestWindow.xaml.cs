@@ -82,6 +82,10 @@ namespace Vocabulary
             {
                 btnCancel_Click(sender, e);
             }
+            if (e.Key.Equals(Key.Enter) && isRightAnswer == true)
+            {
+                btnNextWrd_Click(sender, e);
+            }
         }
 
         private void btnQuestion_Click(object sender, RoutedEventArgs e)
@@ -156,7 +160,10 @@ namespace Vocabulary
                     }
                     else
                     {
-                        btnNextWrd.Visibility = Visibility.Collapsed;
+                        if (isRightAnswer == false)
+                        {
+                            btnNextWrd.Visibility = Visibility.Collapsed;
+                        }
                         Background = new LinearGradientBrush(Colors.White, Color.FromRgb(214, 38, 38), 90);
                     }
                 }
