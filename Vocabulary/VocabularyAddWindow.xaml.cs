@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -80,7 +81,7 @@ namespace Vocabulary
             db.Vocabularies.Add(newVocabulary);
 
             db.SaveChanges();
-            //dataGrid.Items.Add(newVocabulary);
+            dataGrid.ItemsSource = db.Vocabularies.Local.ToList();
             dataGrid.Items.Refresh();
             Close();
         }

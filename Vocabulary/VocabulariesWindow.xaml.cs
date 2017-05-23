@@ -118,7 +118,7 @@ namespace Vocabulary
             }
             db.Vocabularies.Remove(dbVocabulary);
             db.SaveChanges();
-            //dataGrid.Items.Remove(currentVocabulary);
+            dataGrid.ItemsSource = db.Vocabularies.Local.ToList();
             dataGrid.Items.Refresh();
         }
 
