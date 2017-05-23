@@ -22,6 +22,8 @@ namespace Vocabulary
             InitializeComponent();
             db = new VocabularyContext();
             db.Score.Load();
+            db.Vocabularies.Load();
+            comboBox.ItemsSource = db.Vocabularies.Local.ToBindingList();
             labelScore.Content = db.Score.Local.ToList()[0].Count;
         }
 
@@ -56,7 +58,7 @@ namespace Vocabulary
         private void btnRusEng_Click(object sender, RoutedEventArgs e)
         {
             mode = "rusEng";
-            edTestWin = new EducationTestWindow(mode);
+            edTestWin = new EducationTestWindow(mode, (моделирование.Models.Vocabulary)comboBox.SelectedItem);
             edTestWin.Show();
             edTestWin.MainWin = MainWin;
             Close();
@@ -65,7 +67,7 @@ namespace Vocabulary
         private void btnEngRus_Click(object sender, RoutedEventArgs e)
         {
             mode = "engRus";
-            edTestWin = new EducationTestWindow(mode);
+            edTestWin = new EducationTestWindow(mode, (моделирование.Models.Vocabulary)comboBox.SelectedItem);
             edTestWin.Show();
             edTestWin.MainWin = MainWin;
             Close();

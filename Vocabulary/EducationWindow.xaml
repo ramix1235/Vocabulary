@@ -9,6 +9,8 @@
         <ImageBrush ImageSource="Resources/backgroundVocabularies.jpg"/>
     </Window.Background>
     <Grid>
+        <Label x:Name="labelSelectVocabulary" Content="Можно выбрать конкретный словарь для обучения:" Margin="10,10,10,0" Height="25" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="comboBox"  DisplayMemberPath = "Title" Margin="10,40,10,0" VerticalAlignment="Top" BorderBrush="White" Foreground="Black" Background="White" IsReadOnly="True"/>
         <Viewbox Stretch="Fill">
             <StackPanel Orientation="Vertical" Height="392" Width="492" Opacity="0">
                 <StackPanel.Triggers>

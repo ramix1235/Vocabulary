@@ -19,15 +19,25 @@ namespace Vocabulary
         public Window MainWin { get; set; }
         public string mode;
         public Word currentWord;
+        public моделирование.Models.Vocabulary currentVocabulary;
         public bool isBtnQuestionClick = false;
         public bool isRightAnswer = false;
         private EducationWindow edWin;
         VocabularyContext db;
 
-        public EducationTestWindow(string mode)
+        public EducationTestWindow(string mode, моделирование.Models.Vocabulary currentVocabulary)
         {
             InitializeComponent();
             this.mode = mode;
+            try
+            {
+                this.currentVocabulary = currentVocabulary;
+
+            }
+            catch (NullReferenceException)
+            {
+                this.currentVocabulary = null;
+            }
             if (mode == "engRus")
             {
                 InputLanguageManager.SetInputLanguage(textBoxWrd, CultureInfo.CreateSpecificCulture("ru"));
@@ -39,7 +49,7 @@ namespace Vocabulary
             db = new VocabularyContext();
             db.Score.Load();
             labelScore.Content = db.Score.Local.ToList()[0].Count;
-            randomWord(mode);
+            randomWord();
             btnNextWrd.Visibility = Visibility.Collapsed;
             textBlockQuestion.Visibility = Visibility.Collapsed;
         }
@@ -108,7 +118,7 @@ namespace Vocabulary
             textBoxWrd.Text = "";
             textBlockQuestion.Text = "";
             Background = new LinearGradientBrush(Colors.White, Color.FromRgb(0, 149, 182), 90);
-            randomWord(mode);
+            randomWord();
         }
 
         private void textBoxWrd_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -182,13 +192,20 @@ namespace Vocabulary
         /// <summary>
         /// Генерация слова в зависимости от режима тренировки
         /// </summary>
-        /// <param name="mode">Язык тренировки</param>
-        private void randomWord(string mode)
+        private void randomWord()
         {
             Random rnd = new Random();
             db = new VocabularyContext();
             db.Words.Load();
-            var words = db.Words.Local.ToArray();
+            Word[] words;
+            if (currentVocabulary == null)
+            {
+                words = db.Words.Local.ToArray();
+            }
+            else
+            {
+                words = currentVocabulary.Words.ToArray();
+            }
             int min = 1;
             int max = words.Length;
             int index = rnd.Next(min, max);
