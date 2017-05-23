@@ -14,6 +14,7 @@ namespace Vocabulary
     public partial class ShopWindow : Window
     {
         public Window MainWin { get; set; }
+        private ShopExtendVocabularyCapacityWindow shopEVCWin;
         VocabularyContext db;
 
         public ShopWindow()
@@ -85,26 +86,27 @@ namespace Vocabulary
                 MessWin.ShowDialog();
                 return;
             }
-            labelScore.Content = db.Score.Local.ToList()[0].Count - (int)product.Price;
-            db.Score.Local.ToList()[0].Count -= (int)product.Price;
+
             if (product.Title == products[0].Title)
             {
+                labelScore.Content = db.Score.Local.ToList()[0].Count - (int)product.Price;
+                db.Score.Local.ToList()[0].Count -= (int)product.Price;
                 db.Limitation.ToList()[0].MaxCountOfVocabulary++;
                 labelVocabulariesScore.Content = db.Vocabularies.ToList().Count + "/" + db.Limitation.ToList()[0].MaxCountOfVocabulary;
             }
             else if (product.Title == products[1].Title)
             {
+                labelScore.Content = db.Score.Local.ToList()[0].Count - (int)product.Price;
+                db.Score.Local.ToList()[0].Count -= (int)product.Price;
                 db.Limitation.ToList()[0].MaxCountOfCategory++;
                 labelCategoriesScore.Content = db.Categories.ToList().Count + "/" + db.Limitation.ToList()[0].MaxCountOfCategory;
             }
             else
             {
-                // слова
+                shopEVCWin = new ShopExtendVocabularyCapacityWindow(labelScore, products[2]);
+                shopEVCWin.Show();
             }
             db.SaveChanges();
-            // понять какую услугу выбрал
-            // отнять монеты (если это возможно)
-            // увеличить запас
         }
     }
 }
